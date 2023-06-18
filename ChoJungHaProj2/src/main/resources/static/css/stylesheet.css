@@ -1,0 +1,731 @@
+html{
+    scroll-behavior: smooth;
+    background-color: black;
+}
+main{
+    width: 100%;
+    height: auto;
+}
+nav{
+    width: 100%;
+    background: rgba(255,255,255,0.9);
+    height: fit-content;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+}
+#navbar_brand{
+    color: blueviolet;
+    font-weight: bold;
+    transition: 1s;
+}
+#navbar_brand:hover{
+    color: plum;
+    transition: 1s;
+}
+nav li:hover{
+    color: skyblue;
+    background-color: black;
+    border-radius: 10px;
+    transition: 0.5s;
+    font-weight: bold;
+}
+nav li:active{
+    color: skyblue;
+}
+/*writing a css code to make the nav > ul > li to use space within nav equally*/
+nav > div > ul{
+    padding: 0;
+    margin: 0;
+    width: 80%;
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+}
+nav > div > ul > li{
+    display: inline-block;
+    flex: 1 1 auto;
+    border-right: lightgray 2px solid;
+    text-decoration: none;
+    padding: 10px 5px;
+    transition: 0.5s;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav > div > ul > li > a{
+	color: blueviolet;
+}
+nav > div > ul > li:last-child{
+    border-right: none;
+}
+nav > button > span{
+    border: lightgray 2px solid;
+    border-radius: 50%;
+    color: black; 
+}
+.navbar_toggler{
+    background: black;
+    border: 1px solid black;
+    z-index: 4;
+}
+@media screen and (max-width: 768px){
+    nav{
+        background: rgba(255,255,255,0.9);
+    }
+    nav > div> ul > li{
+        border-right: none;
+    }
+}
+/*header css finished*/
+
+/*main body css */
+section{
+    width: 100%;
+    margin: auto;
+    height: auto;
+    overflow: auto;
+    background-color: black;
+}
+section h3{
+    text-align: center;
+}
+/*hero*/
+#hero{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background: white;
+}
+#iam{
+    padding-top : 20vh;
+}
+#message{
+    padding-top: 20px;
+    padding-bottom: 5vh;
+}
+#hero p{
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    z-index: 2;
+}
+#img_wrapper{
+    margin: 0 auto;
+    position: relative;
+    width: 90%;
+    margin-top: 10px;
+}
+#img_wrapper img{
+    width: 100%;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+@media screen and (768< width< 1080px){
+    #img_wrapper{
+        width: 50%;
+    }
+    #iam{
+        padding-top: 18vh;
+    }
+}
+@media screen and (max-width: 768px){
+    #img_wrapper{
+        width: 100%;
+        padding-bottom: 3.5vh;
+    }
+    #iam{
+        padding-top: 10vh;
+    }
+}
+/*about*/
+#about{
+    width: 100%;
+    background-color: blueviolet; /*rgb(212, 205, 191);*/
+    height: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 10vh;
+    padding-top: 5vh;
+    margin-top: -10vh;
+}
+#about_wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+}
+.self_description, #academic_description{
+    width: 100%;
+    height: 80%;
+    box-sizing: border-box;
+    margin: 20px auto;
+    z-index: 1;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.about_text{
+    padding-top: 2vh;
+    padding-bottom: 3vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    height: auto;
+}
+.profile_photo{
+    background: black;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    z-index: 2;
+    border: 1px solid black;
+    transition: 0.5s ease-in-out;
+}
+.profile_photo:hover{
+    transform: scale(1.2);
+}
+@media screen and (max-width: 768px){
+    .about_text{
+        padding-bottom: 10vh;
+    }
+}
+/*skills*/
+/*skills overall structures*/
+#skills{
+    width: 100%;
+    height: 45vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#skills_wrapper{
+    width: 90%;
+    height: auto;
+    background-color: white;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: absolute;
+    z-index: 2;
+    margin-top: -20vh;
+}
+@media screen and ( 768px < width < 1080px){
+    #skills{
+        height: 35vh;
+    }
+    #skills_wrapper{
+        margin-top: -15vh;
+    }
+}
+@media screen and (max-width: 768px){
+    #skills{
+        height: 110vh;
+    }
+    #dev_skills,#gen_skills{
+        border-left: 2px solid #E6ECF8;
+        border-radius: 10px;
+    }
+    #eng_skills{
+        border-right: 2px solid #E6ECF8;
+        border-radius: 10px;
+    }
+    #skills_wrapper{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media screen and (min-width: 1080px){
+    #skills_wrapper{
+        margin-top: -23vh;
+    }
+    #skills{
+        height: 20vh;
+    }
+}
+#skills_wrapper > div{
+    height: auto;
+    border-bottom: 2px solid #E6ECF8;
+    border-right: 2px solid #E6ECF8;
+}
+#skills_wrapper > div:nth-child(1){
+    border-left: 2px solid #E6ECF8;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#skills_wrapper > div:nth-child(3){
+    border-right: 2px solid #E6ECF8;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+/*skills content*/
+.skill_title{
+    font-size: larger;
+    font-weight: bold;
+}
+.skill_wrapper{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.skill_list{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+.text_wrapper{
+    width: 90%;
+}
+#skills_wrapper p{
+    text-align: center;
+}
+#dev_skills img{
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+}
+
+/*projects*/
+#projects{
+    background: white;
+    color: blueviolet; 
+    padding-top: 10px;
+    width: 100%;
+    height: auto;
+}
+#projects_wrapper{
+    width: 100%-40px;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    padding-top: 40px;
+}
+.project_wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    width: 400px;
+    justify-content: space-evenly;
+}
+/*projects common traits*/
+.projects{
+    background-color: white;
+    color: white;
+    border: 1px solid #E6ECF8;
+    border-radius: 10px;
+    height: 270px;
+    margin: 20px;
+    flex: 0 0 400px;
+    z-index: 1;
+    transition: .5s;
+    position: relative;
+}
+.project_hover{
+    /*for itself*/
+    transition: .5s ease-in-out;
+    z-index: 2;
+    opacity: 0;
+    width: 400px;
+    height: 270px;
+    margin: 20px;
+    border-radius: 10px;
+    /*for children*/
+    display: flex; 
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    background: #141c3a;
+    color: white;
+    position: absolute;
+}
+.project_hover:hover{
+    opacity: 1;
+}
+.project_text{
+    text-align: center;
+    width: 70%;
+    margin-bottom: 5%;
+}
+
+/*specific traits*/
+#project1{
+    background: url('../Images/hero.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#project2{
+    background: url('../Images/openai.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#project3{
+    background: url('../Images/instagram.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/*more projects button*/
+#projects_button_wrapper{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: 40px 0px;
+}
+#more_projects_button{
+    background: #141c3a;
+    color: white;
+    border: black 2px solid;
+    transition: .5s;
+    
+}
+#more_projects_button:hover{
+    background: white;
+    color: black;
+    border: black 2px solid;
+    transition: 0.5s;
+}
+
+/*experience*/
+#experience{
+    width: 100%;
+    height: auto;
+    background-color: blueviolet;
+    color: white;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding-top: 30px;
+}
+#experience_wrapper{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+#exp_history_left{
+    width: 100px;
+    height: 100%;
+    padding-right: 20px;
+}
+#exp_history_right{
+    width: 100%;
+    height: 100%;
+    border-left: 2px solid white;
+}
+.bullet_and_content{
+    height: 150px;
+    position: relative;
+}
+.bullet_and_content p{
+    padding-left : 30px;
+    margin-bottom: 0;
+}
+.year{
+    width: 20px;
+    height: 150px;
+    font-size: large;
+    position: relative;
+}
+.year_number{
+    position: absolute;
+    top: -10px;
+}
+.bullets{
+    width: 10px;
+    background-color: white;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    left: -5.818px;
+}
+.position{
+    position: absolute;
+    top: -10px;
+    font-size: larger;
+}
+.info{
+    list-style: none;
+}
+@media screen and (min-width: 1080px){
+    #experience_wrapper{
+        width: 60%;
+    }
+    .year{
+        font-size: larger;
+    }
+}
+
+/*contacts*/
+#contacts{
+    background-color: white;
+    border: 1px solid #E6ECF8;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: black;
+}
+#submitbutton{
+    background: white;
+    color: black;
+    border: black 2px solid;
+    transition: .5s;
+}
+#submitbutton:hover{
+    background: blueviolet;
+    color: white;
+    font-weight: bold;
+    border: white 2px solid;
+    transition: 0.5s;
+}
+@media screen and (min-width: 1080px){
+    #contact_wrapper{
+        width: 50%;
+    }
+}
+/*footer*/
+footer{
+    padding-top: 20px;
+    width: 100%;
+    height: auto;
+    /*background-color: rgb(255, 213, 255, 0.2);*/
+    background-color: blueviolet;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+}
+footer > div{
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+#socialmedia_wrapper{
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+}
+#linkedin, #instagram, #notion, #github{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 0px 10px;
+    margin-bottom: 20px;
+}
+#linkedin{
+    background: url('../Images/linkedin.png') 50% 50% /100% 100%;
+}
+#instagram{
+    background: url('../Images/instagram.png') 50% 50% /100% 100%;
+}
+#notion{
+    background: url('../Images/notion.png') 50% 50% /100% 100%;
+}
+#github{
+    background: url('../Images/github.png') 50% 50% /105% 105%;
+}
+
+/*Login.jsp*/
+html {
+  height: 100%;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: linear-gradient(#141e30, #243b55);
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: blueviolet;
+  /*color: #03e9f4;*/
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: blueviolet;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box a:hover {
+   color: blueviolet;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px blueviolet,
+              0 0 25px blueviolet,
+              0 0 50px blueviolet,
+              0 0 100px blueviolet;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, blueviolet);
+  animation: btn-anim1 2s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, blueviolet);
+  animation: btn-anim2 2s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, blueviolet);
+  animation: btn-anim3 2s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, blueviolet);
+  animation: btn-anim4 2s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+
