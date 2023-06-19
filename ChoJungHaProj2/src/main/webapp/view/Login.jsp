@@ -15,6 +15,7 @@
 	</c:if>  
     <c:if test="${empty sessionScope.id }" var="isLogin">
 		<!--  로그인 전 -->
+		
     	<div class="login-box">
 		  <h2>Login</h2>
 		  <form action="<c:url value="/auth/LoginProcess.do"/>" 
@@ -37,6 +38,9 @@
 		  </form>
 		</div>
 	</c:if>
+	<div id="register-link">
+		<a href="<c:url value="/approach/Registration.do"/>">Need Register? Click here</a>
+	</div>
 	<c:if test="${not isLogin }">
 		<!-- 로그인 후 -->
 		<div class="alert alert-success">

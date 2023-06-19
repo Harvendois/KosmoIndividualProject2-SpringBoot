@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.kosmo.springapp.service.AllService;
 import com.kosmo.springapp.service.ListPagingData;
@@ -19,7 +20,8 @@ public class MemberServiceImpl implements AllService<MemberDTO>{
 	
 	public boolean isMember(Map map) {
 		
-		return mapper.findByIdAndPwd(map);
+		boolean isMember = mapper.findByIdAndPwd(map);
+		return isMember;
 	}
 
 	@Override

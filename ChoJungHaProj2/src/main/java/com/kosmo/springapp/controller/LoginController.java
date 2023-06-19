@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.kosmo.springapp.service.impl.MemberServiceImpl;;
 
+@SessionAttributes("id")
 @Controller
 @RequestMapping("/auth")
 public class LoginController {
@@ -27,7 +29,6 @@ public class LoginController {
 		return "/view/Login";
 	}//////////////
 	//로그인 처리
-	
 	@PostMapping("/LoginProcess.do")
 	public String process(@RequestParam Map map,Model model) {
 		//서비스 호출

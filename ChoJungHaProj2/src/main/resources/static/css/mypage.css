@@ -60,10 +60,10 @@ body {
     background-color: #fff;
 }
 .bg-000 {
-    background-color: #000;
+    background-color: #fff;
 }
 .text-fff {
-    color: #fff;
+    color: #000;
 }
 .text-center {
     text-align: center !important;
@@ -482,11 +482,11 @@ strike {
 }
 
 .bg-1 {
-    background: #557daa;
+    background: white;
 }
 
 .text-1 {
-    color: #557daa;
+    color: white;
 }
 
 /* ADMIN PAGE */
@@ -498,6 +498,7 @@ strike {
     display: -webkit-flex;
     padding-left: 200px;
     transition: 0.5s;
+    margin-top: 60px;
 }
 .container.is-click {
     padding-left: 0;
@@ -512,15 +513,15 @@ strike {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: #fff;
-    border: 2px solid #fff;
+    background: blueviolet;
+    border: 2px solid blueviolet;
     overflow: hidden;
 }
 .avatarName {
     display: table-cell;
     vertical-align: middle;
     padding-left: 1em;
-    color: #fff;
+    color: blueviolet;
     line-height: 1.5;
 }
 
@@ -529,24 +530,29 @@ strike {
 .sideArea {
     width: 200px;
     min-width: 200px;
-    background: #2A3F54;
+    /*background: #2A3F54;*/
+    background: white;
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     transition: 0.5s;
+    margin-top: 60px;
+    border-right: 1px solid blueviolet;
+	border-top: 1px solid blueviolet;
 }
 .container.is-click .sideArea {
     left: -200px;
 }
 .sideArea li>a {
     display: block;
-    color: #fff;
+    /*color: #fff;*/
+    color: blueviolet;
     padding: 1em;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(138,43,226,0.2);
 }
 .sideArea li>a:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(138,43,226,0.1);
 }
 .sideArea li>a>.fa {
     width: 1em;
@@ -555,14 +561,14 @@ strike {
 }
 .submenu {
     display: none;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(138,43,226,0.2);
 }
 .submenu li>a {
     padding-left: 2em;
     border-bottom: none;
 }
 .sideMenu {
-    border-top: 1px solid rgba(255,255,255,0.2);
+    border-top: 1px solid rgba(138,43,226,0.2);
 }
 
 /* MAIN CSS */
@@ -597,7 +603,7 @@ strike {
     position: absolute;
     top: 100%;
     right: 0;
-    background: #fff;
+    background: blueviolet;
     border: 1px solid #dedede;
     z-index: 999;
 }

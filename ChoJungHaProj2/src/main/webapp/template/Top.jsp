@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/stylesheet.css">
-    <link rel="stylesheet" href="/static/css/mypage.css">
+    
     <script src="https://kit.fontawesome.com/71e5004f27.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
@@ -38,6 +38,9 @@
 		          <li class="nav-item">
 		            <a class="nav-link" href="<c:url value="/auth/Login.do"/>">Login <i class="fa fa-user-o"></i></a>
 		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link " href="<c:url value="/approach/Registration.do"/>">Registration <i class='fas fa-edit'></i></a>
+		        </li> 
 				</c:if>
 				<c:if test="${not isLogin }">
 		          <li class="nav-item">
