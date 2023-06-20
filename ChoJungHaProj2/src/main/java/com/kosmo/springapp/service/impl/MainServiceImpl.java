@@ -4,6 +4,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kosmo.springapp.service.BoardDTO;
@@ -13,6 +14,7 @@ import com.kosmo.springapp.service.AllService;
 @Service
 public class MainServiceImpl implements AllService<BoardDTO>{
 
+	
 	@Override
 	public BoardDTO selectOne(Map map) {
 		// TODO Auto-generated method stub
@@ -21,7 +23,7 @@ public class MainServiceImpl implements AllService<BoardDTO>{
 
 	@Override
 	public int insert(Map map) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 

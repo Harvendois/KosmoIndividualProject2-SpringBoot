@@ -26,8 +26,8 @@ public class MemberServiceImpl implements AllService<MemberDTO>{
 
 	@Override
 	public int insert(Map map) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return mapper.save(map);
 	}
 
 	@Override

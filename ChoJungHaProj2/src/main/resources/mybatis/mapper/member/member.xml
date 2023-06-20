@@ -74,11 +74,12 @@
 			</if>
 		</where>		
 	</select>
-	
+	-->
 	
 	<insert id="save" parameterType="Map">
-		INSERT INTO onememo VALUES(SEQ_ONEMEMO.NEXTVAL,#{title},#{content},SYSDATE,#{id})
+		INSERT INTO member VALUES(#{id},#{pwd},#{name},#{},SYSDATE,#{id})
 	</insert>
+	<!--
 	<select id="findByNo" parameterType="Map" resultMap="memoDtoResult">-->
 		<!-- 글 번호에 따른 댓글 수는 제외하고 조회(상세보기 화면이니까) -->
 		<!-- 
