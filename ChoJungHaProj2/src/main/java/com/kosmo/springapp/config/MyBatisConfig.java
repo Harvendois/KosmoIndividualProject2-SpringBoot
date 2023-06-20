@@ -27,7 +27,7 @@ public class MyBatisConfig {
 		try {
 			SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
 			factoryBean.setDataSource(dataSource);//데이타 소스로 히카리 전달
-			factoryBean.setTypeAliasesPackage("com.example.springapp");//
+			factoryBean.setTypeAliasesPackage("com.kosmo.springapp");//
 			factoryBean.setMapperLocations(applicationContext.getResources("classpath:mybatis/mapper/**/*.xml"));
 			factory=factoryBean.getObject();
 		}

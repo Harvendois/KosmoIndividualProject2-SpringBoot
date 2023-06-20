@@ -14,7 +14,7 @@ public class MainController {
 	
 	@GetMapping("/")
 	public String index() {
-		return "/view/Index";
+		return "/view/About";
 	}
 	@GetMapping("/approach/About.do")
 	public String about() {

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- namespace속성:매퍼 인터페이스의 완전한경로 .java는 생략 -->
+<!--※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. --> 
+<!-- 
+	[쿼리문 작성법]
+	A. 값에 해당하는 부분은 #{변수}
+	B. 객체에 해당하는 부분은 ${변수} 객체은 테이블명 혹은 컬럼명등을 의미
+	C. #{변수} 작성시 parameterType이 Map인 경우는 키값을
+	               자바빈(DTO계열)인 경우는 자바빈의 속성명(멤버변수명) 이어야 한다
+	               단,parameterType이 int나 String인 경우는 임의값을 줘도 무방
+	D. 쿼리문안에  >,>= ,<,<=등의 비교 연산자를 사용하는 경우 에러
+	  	1. <![CDATA[     ]]> CDATA섹션을 사용하거나
+	  		예] 
+	  		SELECT * FROM emp
+	  		<![CDATA[ 
+	  		WHERE sal >= 3000
+	  		]]>
+	  		CDATA섹션의 문자열은 단순 텍스트로 처리한다
+	  	2. 특수문자를 사용한다 즉 >은 &gt; < 은 &lt;
+	  	   예]
+	  	  SELECT * FROM emp
+	  	  WHERE sal &gt;= 3000
+	 -->
+  
+<!-- 매퍼파일 -->
+<mapper namespace="com.kosmo.springapp.onememo.service.impl.OneMemoMapper">
+
+	<!--resultMap요소 사용시 column속성 필수:ibatis와 다른점  -->
+	<!-- 레코드를 조회하는 모든 select태그에서 사용할 수 있다 
+		 상세보기에 적용해 보자 :글 번호에 따른 모든 한줄 댓글도 가져오기위해 collection요소 사용
+		 type속성:DTO계열 즉 SELECT한 쿼리 결과를 담을 자바빈 객체
+		 id속성: select 요소의 resultMap속성에 설정해줄 식별자    
+	 -->
+	 <!-- 쿼리 조인 결과를 담을 ResultMap 요소 정의 -->
+	 <!--  
+	 <resultMap type="oneMemoDto" id="memoDtoResult">-->
+	 	<!-- 
+		property:자바빈(OneMemoDTO)의 속성명
+		column:테이블의 컬럼(조회(SELECT)결과의 컬럼명들 의미)
+		 --><!-- 
+		 <result property="no" column="no"/>
+		 <result property="title" column="title"/>
+		 <result property="content" column="content"/>
+		 <result property="postDate" column="postDate"/>
+		 <result property="id" column="id"/>
+		 <result property="name" column="name"/> -->
+		 <!-- 조인 쿼리시 반드시 commentCounts로 별칭하자 
+		 <result property="commentCounts" column="commentCounts"/>-->
+		 <!-- 
+		1:N관계 매핑용(collection요소 사용)
+		column: 조인조건의 컬럼명 (ON onememo.no = linecomments.no)
+		select: select태그의 id 속성값(쿼리문은 조인문)
+		javaType : OneMemo테이블의 자식레코드를 담는 컬렉션 타입 즉 (List<LineCommentDTO>)
+		ofType : 자식의 DTO타입
+		property: 댓글 목록을 담을 OneMemoDTO속성명
+		
+		
+		아래 collection요소 사용시 
+		현재 매퍼파일에서 메모글 하나 가져올때 반드시 resultMap="memoDtoResult"을 사용하지
+		 --><!--  
+		<collection property="comments" column="no" select="com.kosmo.springapp.onememo.service.impl.LineCommentMapper.findAllByNo" javaType="List" ofType="commentDto"/>
+	 </resultMap>-->
+
+	<select id="findByIdAndPwd" parameterType="Map" resultType="boolean" >
+		SELECT COUNT(*) FROM member WHERE id=#{id} AND pwd=#{pwd} 
+	</select>
+	<!-- 
+	검색시 :<where>
+			<if test="searchWord !=null">
+				${searchColumn} LIKE '%' || #{searchWord} || '%'
+			</if>
+		  </where>만 추가. 자바코드 수정 불필요
+	
+	페이징시:
+		1.구간쿼리로 변경
+		2.총 레코드수 구하는 쿼리 추가
+		3.서비스단에 페이징관련 로직추가
+		4.JSP에서 출력
+		,(SELECT COUNT(*) FROM comments WHERE no=b.no) commentCounts
+	 -->
+	<select id="findAll" parameterType="Map" resultType="boardDto">
+		SELECT * FROM 
+		(SELECT T.*,ROWNUM R FROM (SELECT b.*,name 
+		FROM board b JOIN member m ON m.id=b.id
+		<where>
+			<if test="searchWord !=null">
+				${searchColumn} LIKE '%' || #{searchWord} || '%'
+			</if>
+		</where>
+		ORDER BY no DESC) T)
+		WHERE R BETWEEN #{start} AND #{end}			
+	</select>
+	<select id="count" parameterType="Map" resultType="int">
+		SELECT COUNT(*)
+		FROM board b JOIN member m ON m.id=b.id
+		<where>
+			<if test="searchWord !=null">
+				${searchColumn} LIKE '%' || #{searchWord} || '%'
+			</if>
+		</where>		
+	</select>
+	
+	
+	<insert id="save" parameterType="Map">
+		INSERT INTO onememo VALUES(SEQ_ONEMEMO.NEXTVAL,#{title},#{content},SYSDATE,#{id})
+	</insert>
+	<select id="findByNo" parameterType="Map" resultMap="memoDtoResult">
+		<!-- 글 번호에 따른 댓글 수는 제외하고 조회(상세보기 화면이니까) -->
+		SELECT o.*,name 
+		FROM onememo o JOIN member m ON m.id=o.id
+		WHERE no=#{no}
+	</select>
+	<delete id="deleteByNo" parameterType="oneMemoDto">
+		DELETE onememo WHERE no=#{no}
+	</delete>
+	<update id="updateByNo" parameterType="oneMemoDto">
+		UPDATE onememo SET title=#{title},content=#{content} WHERE no=#{no}
+	</update>
+
+</mapper>

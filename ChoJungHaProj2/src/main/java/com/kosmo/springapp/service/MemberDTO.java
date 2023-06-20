@@ -19,6 +19,6 @@ public class MemberDTO {
 	private String pwd;
 	private String name;
 	private String registrynum;
-	private String addr;
+	private String address;
 	private String inter;
 }
