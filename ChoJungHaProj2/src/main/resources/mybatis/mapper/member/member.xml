@@ -77,16 +77,14 @@
 	-->
 	
 	<insert id="save" parameterType="Map">
-		INSERT INTO member VALUES(#{id},#{pwd},#{name},#{},SYSDATE,#{id})
+		INSERT INTO member VALUES(#{id},#{pwd},#{name},#{registrynum},#{address},#{inter})
 	</insert>
-	<!--
-	<select id="findByNo" parameterType="Map" resultMap="memoDtoResult">-->
+	
+	<select id="findById" parameterType="Map" resultType="memberDto">
 		<!-- 글 번호에 따른 댓글 수는 제외하고 조회(상세보기 화면이니까) -->
-		<!-- 
-		SELECT o.*,name 
-		FROM onememo o JOIN member m ON m.id=o.id
-		WHERE no=#{no}
+		SELECT * FROM member WHERE id=#{id}
 	</select>
+	<!--
 	<delete id="deleteByNo" parameterType="oneMemoDto">
 		DELETE onememo WHERE no=#{no}
 	</delete>

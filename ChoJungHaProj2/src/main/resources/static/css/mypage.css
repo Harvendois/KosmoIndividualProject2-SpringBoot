@@ -54,6 +54,7 @@ img {
 }
 body {
     font-family: Arial, sans-serif;
+    width: 100%;
 }
 /* COLOR */
 .bg-fff {
@@ -84,334 +85,7 @@ strike {
     text-decoration: line-through;
     color: #ccc;
 }
-/* GRID */
-.row:before, .row:after {
-    content: "";
-    display: table;
-}
-.row:after {
-    clear: both;
-}
-[class~="column"] {
-    float: left;
-    width: 100%;
-    overflow: hidden;
-}
-.wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
-@media (max-width: 1200px) {
-    .wrap {
-        max-width: 100%;
-        padding: 0 15px;
-    }
-}
-
-/* eXtra small Grid */
-@media (min-width: 481px) {
-    .column.x-1 {
-        width: 8.33%;
-    }
-    .column.x-2 {
-        width: 16.66%;
-    }
-    .column.x-3 {
-        width: 25%;
-    }
-    .column.x-4 {
-        width: 33.33%;
-    }
-    .column.x-5 {
-        width: 41.66%;
-    }
-    .column.x-6 {
-        width: 50%;
-    }
-    .column.x-7 {
-        width: 58.33%;
-    }
-    .column.x-8 {
-        width: 66.66%;
-    }
-    .column.x-9 {
-        width: 75%;
-    }
-    .column.x-10 {
-        width: 83.33%;
-    }
-    .column.x-11 {
-        width: 91.66%;
-    }
-    .column.x-12 {
-        width: 100%;
-    }
-    .list-x-1>[class~="column"] {
-        width: 100%;
-    }
-    .list-x-2>[class~="column"] {
-        width: 50%;
-    }
-    .list-x-3>[class~="column"] {
-        width: 33.33%;
-    }
-    .list-x-4>[class~="column"] {
-        width: 25%;
-    }
-    .list-x-5>[class~="column"] {
-        width: 20%;
-    }
-    .list-x-6>[class~="column"] {
-         width: 16.66%;
-    }
-    .list-x-7>[class~="column"] {
-        width: 14.2857%;
-    }
-    .list-x-8>[class~="column"] {
-        width: 12.5%;
-    }
-    .list-x-9>[class~="column"] {
-        width: 11.11%;
-    }
-    .list-x-10>[class~="column"] {
-        width: 10%;
-    }
-    .list-x-11>[class~="column"] {
-        width: 9.091%;
-    }
-    .list-x-12>[class~="column"] {
-        width: 8.33%;
-    }
-}
-
-/* Small Grid */
-@media (min-width: 769px) {
-    .column.s-1 {
-      width: 8.33%;
-    }
-    .column.s-2 {
-      width: 16.66%;
-    }
-    .column.s-3 {
-      width: 25%;
-    }
-    .column.s-4 {
-      width: 33.33%;
-    }
-    .column.s-5 {
-      width: 41.66%;
-    }
-    .column.s-6 {
-      width: 50%;
-    }
-    .column.s-7 {
-      width: 58.33%;
-    }
-    .column.s-8 {
-      width: 66.66%;
-    }
-    .column.s-9 {
-      width: 75%;
-    }
-    .column.s-10 {
-      width: 83.33%;
-    }
-    .column.s-11 {
-      width: 91.66%;
-    }
-    .column.s-12 {
-      width: 100%;
-    }
-    .list-s-1>[class~="column"] {
-      width: 100%;
-    }
-    .list-s-2>[class~="column"] {
-      width: 50%;
-    }
-    .list-s-3>[class~="column"] {
-      width: 33.33%;
-    }
-    .list-s-4>[class~="column"] {
-      width: 25%;
-    }
-    .list-s-5>[class~="column"] {
-      width: 20%;
-    }
-    .list-s-6>[class~="column"] {
-      width: 16.66%;
-    }
-    .list-s-7>[class~="column"] {
-      width: 14.2857%;
-    }
-    .list-s-8>[class~="column"] {
-      width: 12.5%;
-    }
-    .list-s-9>[class~="column"] {
-      width: 11.11%;
-    }
-    .list-s-10>[class~="column"] {
-      width: 10%;
-    }
-    .list-s-11>[class~="column"] {
-      width: 9.091%;
-    }
-    .list-s-12>[class~="column"] {
-      width: 8.33%;
-    }
-}
-
-/* Medium Grid */
-@media (min-width: 993px) {
-    .column.m-1 {
-      width: 8.33%;
-    }
-    .column.m-2 {
-      width: 16.66%;
-    }
-    .column.m-3 {
-      width: 25%;
-    }
-    .column.m-4 {
-      width: 33.33%;
-    }
-    .column.m-5 {
-      width: 41.66%;
-    }
-    .column.m-6 {
-      width: 50%;
-    }
-    .column.m-7 {
-      width: 58.33%;
-    }
-    .column.m-8 {
-      width: 66.66%;
-    }
-    .column.m-9 {
-      width: 75%;
-    }
-    .column.m-10 {
-      width: 83.33%;
-    }
-    .column.m-11 {
-      width: 91.66%;
-    }
-    .column.m-12 {
-      width: 100%;
-    }
-    .list-m-1>[class~="column"] {
-      width: 100%;
-    }
-    .list-m-2>[class~="column"] {
-      width: 50%;
-    }
-    .list-m-3>[class~="column"] {
-      width: 33.33%;
-    }
-    .list-m-4>[class~="column"] {
-      width: 25%;
-    }
-    .list-m-5>[class~="column"] {
-      width: 20%;
-    }
-    .list-m-6>[class~="column"] {
-      width: 16.66%;
-    }
-    .list-m-7>[class~="column"] {
-      width: 14.2857%;
-    }
-    .list-m-8>[class~="column"] {
-      width: 12.5%;
-    }
-    .list-m-9>[class~="column"] {
-      width: 11.11%;
-    }
-    .list-m-10>[class~="column"] {
-      width: 10%;
-    }
-    .list-m-11>[class~="column"] {
-      width: 9.091%;
-    }
-    .list-m-12>[class~="column"] {
-      width: 8.33%;
-    }
-}
-
-/* Large Grid */
-@media (min-width: 1201px) {
-    .column.l-1 {
-      width: 8.33%;
-    }
-    .column.l-2 {
-      width: 16.66%;
-    }
-    .column.l-3 {
-      width: 25%;
-    }
-    .column.l-4 {
-      width: 33.33%;
-    }
-    .column.l-5 {
-      width: 41.66%;
-    }
-    .column.l-6 {
-      width: 50%;
-    }
-    .column.l-7 {
-      width: 58.33%;
-    }
-    .column.l-8 {
-      width: 66.66%;
-    }
-    .column.l-9 {
-      width: 75%;
-    }
-    .column.l-10 {
-      width: 83.33%;
-    }
-    .column.l-11 {
-      width: 91.66%;
-    }
-    .column.l-12 {
-      width: 100%;
-    }
-    .list-l-1>[class~="column"] {
-      width: 100%;
-    }
-    .list-l-2>[class~="column"] {
-      width: 50%;
-    }
-    .list-l-3>[class~="column"] {
-      width: 33.33%;
-    }
-    .list-l-4>[class~="column"] {
-      width: 25%;
-    }
-    .list-l-5>[class~="column"] {
-      width: 20%;
-    }
-    .list-l-6>[class~="column"] {
-      width: 16.66%;
-    }
-    .list-l-7>[class~="column"] {
-      width: 14.2857%;
-    }
-    .list-l-8>[class~="column"] {
-      width: 12.5%;
-    }
-    .list-l-9>[class~="column"] {
-      width: 11.11%;
-    }
-    .list-l-10>[class~="column"] {
-      width: 10%;
-    }
-    .list-l-11>[class~="column"] {
-      width: 9.091%;
-    }
-    .list-l-12>[class~="column"] {
-      width: 8.33%;
-    }
-}
 /* CLASSES */
 .fl {
     float: left;
@@ -495,10 +169,12 @@ strike {
 /*CONTENTS CSS */
 .container {
     display: flex;
-    display: -webkit-flex;
     padding-left: 200px;
     transition: 0.5s;
-    margin-top: 60px;
+    width: 100%;
+    flex-flow: row nowrap;
+    border: 1px red solid;
+    margin: 60px 0 0 0;
 }
 .container.is-click {
     padding-left: 0;
@@ -524,8 +200,10 @@ strike {
     color: blueviolet;
     line-height: 1.5;
 }
-
-
+.mainArea{
+	width: 100% -200px;
+	border: 1px solid black;
+}
 /* SIDE CSS */
 .sideArea {
     width: 200px;

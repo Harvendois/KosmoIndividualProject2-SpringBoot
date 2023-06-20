@@ -44,7 +44,7 @@ public class MemberServiceImpl implements AllService<MemberDTO>{
 
 	@Override
 	public MemberDTO selectOne(Map map) {
-		// TODO Auto-generated method stub
+		//return mapper.findById(map);
 		return null;
 	}
 

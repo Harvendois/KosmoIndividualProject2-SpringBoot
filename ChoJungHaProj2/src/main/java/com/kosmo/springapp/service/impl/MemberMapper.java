@@ -17,7 +17,7 @@ public interface MemberMapper {
 		//입력
 		int save(Map map);
 		//레코드 하나
-		MemberDTO findByNo(Map map);
+		MemberDTO findById(Map map);
 		//번호로 조회해서 레코드 하나 삭제
 		int deleteByNo(MemberDTO record);
 		//번호로 조회해서 레코드 하나 수정

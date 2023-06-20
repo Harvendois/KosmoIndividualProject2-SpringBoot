@@ -13,7 +13,7 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Alias("BoardDto")
+@Alias("boardDto")
 public class BoardDTO {
 	private String no;
 	private String title;

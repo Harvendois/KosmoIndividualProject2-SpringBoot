@@ -4,6 +4,15 @@
 <jsp:include page="/template/Top.jsp"/>
 	
     <div class="container" style="margin-top:50px"> 
+     <c:if test="${! empty member }">
+    <div class="alert alert-primary d-flex align-items-center" role="alert" style="margin-top:230px">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+		  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+		  <div>
+		    <strong>SUCCESS!</strong> ${requestScope.message}
+		  </div>
+		</div>
+	</c:if>
     <c:if test="${! empty NotMember }">
 		<div class="alert alert-danger d-flex align-items-center" role="alert" style="margin-top:230px">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>

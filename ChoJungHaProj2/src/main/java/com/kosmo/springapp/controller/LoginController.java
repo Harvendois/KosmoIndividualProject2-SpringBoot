@@ -15,8 +15,9 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import com.kosmo.springapp.service.impl.MemberServiceImpl;;
 
-@SessionAttributes("id")
+
 @Controller
+@SessionAttributes({"id"})
 @RequestMapping("/auth")
 public class LoginController {
 	@Autowired
@@ -29,10 +30,10 @@ public class LoginController {
 		return "/view/Login";
 	}//////////////
 	//로그인 처리
+	
 	@PostMapping("/LoginProcess.do")
 	public String process(@RequestParam Map map,Model model) {
 		//서비스 호출
-		System.out.println(map.get("id"));
 		boolean isMember=memberService.isMember(map);
 		//데이타 저장		
 		if(isMember)

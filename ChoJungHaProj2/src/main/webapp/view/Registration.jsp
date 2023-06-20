@@ -15,7 +15,7 @@
     	</script>
     </c:if>
     <fieldset>
-        <form action="<c:url value="/Attempt/register.do"/>"
+        <form action="<c:url value="/attempt/Register.do"/>"
 			method="post">
 			<div class="form-group">
 				<label><kbd class="lead">아이디</kbd></label> <input type="text"
@@ -27,7 +27,7 @@
 					value="${ empty param.pwd ?"": param.pwd}" class="form-control" name="pwd"
 					placeholder="비밀번호를 입력하세요">
 			</div>
-      <div class="form-group">
+      		<div class="form-group">
 				<label><kbd class="lead">비밀번호 재입력</kbd></label> <input type="password"
 					value="${ empty param.pwd ?"": param.pwd}" class="form-control" name="pwd2"
 					placeholder="비밀번호를 확인하세요">
@@ -47,6 +47,11 @@
 					value="${ empty param.address ?"": param.address}" class="form-control" name="address"
 					placeholder="주소를 구까지 입력하세요">
 			</div>
+			<div class="form-group">
+				 <input type="hidden"
+					value="ANY" class="form-control" name="inter"
+					placeholder="">
+			</div>
 			<button type="submit" class="btn btn-primary" style="background-color:black;">확인</button>
 		</form>  
 		</fieldset>
@@ -65,8 +70,8 @@
           id.focus();
           return false;
         }
-        if(id.value.length < 6){
-          alert("아이디는 6자리 이상이어야 합니다");
+        if(id.value.length < 3){
+          alert("아이디는 3자리 이상이어야 합니다");
           id.focus();
           return false;
         }
@@ -80,8 +85,8 @@
           pwd.focus();
           return false;
         }
-        if(pwd.value.length < 6){
-          alert("비밀번호는 6자리 이상이어야 합니다");
+        if(pwd.value.length < 4){
+          alert("비밀번호는 4자리 이상이어야 합니다");
           pwd.focus();
           return false;
         }
