@@ -50,7 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
     becomeBlack();
 
     var typeHeroM = ()=>{
-        let text = 'Engineer, Developer, and a Christian.';
+        let text = 'Teammates, family, and above all, God.';
         var textArr = text.split('');
         console.log('%O',textArr);
         for(var i =0; i<textArr.length; i++){

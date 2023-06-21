@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kosmo.springapp.service.BoardDTO;
@@ -21,7 +22,7 @@ public class ListController {
 	@Autowired
 	private BoardServiceImpl boardService;
 	
-	@GetMapping("/approach/List.do")
+	@RequestMapping("/approach/List.do")
 	public String list(
 			@RequestParam Map map,
 			@RequestParam(required = false,defaultValue = "1",value = PagingUtil.NOWPAGE) int nowPage,

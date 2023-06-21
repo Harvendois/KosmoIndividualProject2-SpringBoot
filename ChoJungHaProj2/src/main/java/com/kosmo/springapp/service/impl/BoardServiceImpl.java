@@ -22,26 +22,25 @@ public class BoardServiceImpl implements AllService<BoardDTO>{
 	
 	@Override
 	public BoardDTO selectOne(Map map) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return mapper.findByNo(map);
 	}
 
 	@Override
 	public int insert(Map map) {
 		
-		return 0;
+		return mapper.save(map);
 	}
 
 	@Override
 	public int update(BoardDTO record) {
-		// TODO Auto-generated method stub
-		return 0;
+	
+		return mapper.updateByNo(record);
 	}
 
 	@Override
 	public int delete(BoardDTO record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return mapper.deleteByNo(record);
 	}
 	
 	@Value("${"+PagingUtil.PAGE_SIZE+"}")
