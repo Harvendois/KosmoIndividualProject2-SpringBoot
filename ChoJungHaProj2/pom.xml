@@ -18,6 +18,17 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		<!-- AOP -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+		<!-- 파일 업로드 -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.5</version>
+		</dependency>
 		<!--JSP-->
 		<dependency>
 		    <groupId>org.apache.tomcat.embed</groupId>

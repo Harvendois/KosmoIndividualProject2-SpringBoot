@@ -21,4 +21,7 @@ public class MemberDTO {
 	private String registrynum;
 	private String address;
 	private String inter;
+	
+	private String birthday;
+	private String gender;
 }

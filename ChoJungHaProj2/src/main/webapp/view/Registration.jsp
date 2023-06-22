@@ -22,6 +22,7 @@
 					value="${ empty param.id ?"": param.id}" class="form-control" name="id"
 					placeholder="아이디를 입력하세요">
 			</div>
+			<span id="idcheck"></span>
 			<div class="form-group">
 				<label><kbd class="lead">비밀번호</kbd></label> <input type="password"
 					value="${ empty param.pwd ?"": param.pwd}" class="form-control" name="pwd"
@@ -53,7 +54,48 @@
 					placeholder="">
 			</div>
 			<button type="submit" class="btn btn-primary" style="background-color:black;">확인</button>
-		</form>  
+		</form> 
+		
+		<form action="<c:url value="/attempt/Register.do"/>"
+			method="post">
+			<div class="form-group">
+				<label><kbd class="lead">아이디</kbd></label> <input type="text"
+					value="${ empty param.id ?"": param.id}" class="form-control" name="id"
+					placeholder="아이디를 입력하세요">
+			</div>
+			<span id="idcheck"></span>
+			<div class="form-group">
+				<label><kbd class="lead">비밀번호</kbd></label> <input type="password"
+					value="${ empty param.pwd ?"": param.pwd}" class="form-control" name="pwd"
+					placeholder="비밀번호를 입력하세요">
+			</div>
+      		<div class="form-group">
+				<label><kbd class="lead">비밀번호 재입력</kbd></label> <input type="password"
+					value="${ empty param.pwd ?"": param.pwd}" class="form-control" name="pwd2"
+					placeholder="비밀번호를 확인하세요">
+			</div>
+			<div class="form-group">
+				<label><kbd class="lead">이름</kbd></label> <input type="text"
+					value="${ empty param.name ?"": param.name}" class="form-control" name="name"
+					placeholder="이름를 입력하세요">
+			</div>
+			<div class="form-group">
+				<label><kbd class="lead">주민등록번호</kbd></label> <input type="text"
+					value="${ empty param.registrynum ?"": param.registrynum}" class="form-control" name="registrynum"
+					placeholder="주민등록번호 7자리를 입력하세요">
+			</div>
+			<div class="form-group">
+				<label><kbd class="lead">주소</kbd></label> <input type="text"
+					value="${ empty param.address ?"": param.address}" class="form-control" name="address"
+					placeholder="주소를 구까지 입력하세요">
+			</div>
+			<div class="form-group">
+				 <input type="hidden"
+					value="ANY" class="form-control" name="inter"
+					placeholder="">
+			</div>
+			<button type="submit" class="btn btn-primary" style="background-color:black;">확인</button>
+		</form> 
 		</fieldset>
     </div><!--container-->
     <script> 
@@ -64,6 +106,28 @@
       var name = document.querySelector('input[name=name]');
       var registrynum = document.querySelector('input[name=registrynum]');
       var address = document.querySelector('input[name=address]');
+      
+      $(function(){
+        $('input[name=id]').keyup(function(){
+          var id = $(this).val();
+          $.ajax({
+            url: '<c:url value="/attempt/CheckId.do"/>',
+            type: 'post',
+            data: {'id': id}
+          }).done(function(data){
+        	  console.log(data);
+        	  if(data === '1'){
+                  $('#idcheck').text('이미 사용중인 아이디입니다');
+                  $('#idcheck').css('color', 'red');
+                }else{
+                  $('#idcheck').text('사용 가능한 아이디입니다');
+                  $('#idcheck').css('color', 'blue');
+                }
+          });                 
+        })
+  });
+ 
+      
       btn.onclick = () => {
         if(id.value == ""){
           alert("아이디를 입력하세요");

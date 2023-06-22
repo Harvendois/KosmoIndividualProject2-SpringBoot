@@ -84,6 +84,10 @@
 		<!-- 글 번호에 따른 댓글 수는 제외하고 조회(상세보기 화면이니까) -->
 		SELECT * FROM member WHERE id=#{id}
 	</select>
+	
+	<select id="findId" parameterType="Map" resultType="int">
+		SELECT COUNT(*) FROM member WHERE id=#{id}
+	</select>
 	<!--
 	<delete id="deleteByNo" parameterType="oneMemoDto">
 		DELETE onememo WHERE no=#{no}

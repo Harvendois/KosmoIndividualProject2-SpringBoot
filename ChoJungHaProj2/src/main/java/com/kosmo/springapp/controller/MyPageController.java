@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.kosmo.springapp.service.MemberDTO;
 import com.kosmo.springapp.service.impl.MemberServiceImpl;
@@ -24,8 +25,8 @@ public class MyPageController {
 	private MemberServiceImpl memberService;
 	
 	@GetMapping("/approach/MyPage.do")
-	public String myPage(@RequestParam Map map, Model model, HttpServletResponse resp) {
-		
+	public String myPage(@SessionAttribute("id") String id, Model model, HttpServletResponse resp, Map map) {
+		map.put("id", id);
 		MemberDTO member = memberService.selectOne(map);
 		model.addAttribute("record", member);
 		return "/view/MyPage";

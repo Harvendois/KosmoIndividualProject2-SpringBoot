@@ -11,43 +11,6 @@ function elm(x){
     }
 }
 
-// ACCOUNT CLICK
-window.onclick = function(){
-    elm(".accountLinks")[0].style.display = 'none';
-};
-
-// SUB MENU
-if(elm(".has-submenu")){
-    for(var i=0,len=elm(".has-submenu").length; i<len; i++){
-        elm(".has-submenu")[i].onclick = function(e){
-            e.stopPropagation();
-            toggle(this.nextElementSibling);
-        }
-    }   
-}
-
-// BTN SWITCH
-if(elm(".checkAll") != undefined){
-    for(var i=0,len=elm(".checkAll").length; i<len; i++){
-        var target = elm(".checkAll")[i].getAttribute("target");
-        if(elm(target)[i] != undefined){
-            elm(".checkAll")[i].onchange = function(){
-                var checked = this.checked;
-                for(var i=0,len=elm(target).length; i<len; i++){
-                    elm(target)[i].checked = checked;
-                }
-            }   
-        }
-    }   
-}
-
-// MENU ICON CLICK
-if(elm(".menuIcon")){
-    elm(".menuIcon")[0].onclick = function(){
-        elm(".container")[0].classList.toggle("is-click");
-    };   
-}
-
 // INPUT IMG
 function getImg(x){
     if( x.files.length > 0 ){
@@ -85,37 +48,6 @@ if(elm(".btnCaret")){
         }
     }   
 }
-if(elm(".caretAll")){
-    for(var i=0,len=elm(".caretAll").length; i<len; i++){
-        elm(".caretAll")[i].onchange = function(){
-            var stt = this.checked;
-            var table = findClosest(this,elm(".table")); 
-            var row = findChildren(table,elm(".row"));
-            for(var i=0,len=row.length; i<len; i++){
-                if(stt){
-                    row[i].classList.add("is-active");   
-                }else {
-                    row[i].classList.remove("is-active");
-                }
-            }
-        }  
-    } 
-}
-
-// SORT
-if(elm(".titleSelect") != undefined){
-    for(var i=0,len=elm(".titleSelect").length; i<len; i++){
-        elm(".titleSelect")[i].onclick = function(e){
-            e.stopPropagation();
-            this.classList.toggle("is-active");
-         }      
-    }
-}
-window.onclick = function(){
-    for(var i=0,len=elm(".titleSelect").length; i<len; i++){
-        elm(".titleSelect")[i].classList.remove("is-active");      
-    }
-}
 
 
 // FILTER
@@ -125,60 +57,6 @@ if(elm('.btnFilter') != undefined){
             elm('.boxFilter')[0].classList.toggle('is-active');    
         }      
     }
-}
-
-// PRICE BAR
-var slider = document.getElementById('filterPrice');
-var rangeValue = document.getElementsByClassName('rangeValue');
-
-noUiSlider.create(slider, {
-    start: [0, 100],
-    connect: true,
-    range: {
-      'min': 0,
-      'max': 100
-    }
-});
-
-slider.noUiSlider.on('update', function(values) {
-    for(var i=0,len=values.length; i<len; i++){
-        rangeValue[i].setAttribute('value',values[i]);
-    }
-    values = values.map(function(x){
-        return parseInt(x);
-    });
-    // AJAX HERE
-//     $.ajax({
-//         url: 'ajax.php',
-//         type: 'GET',
-//         data: {},
-//         success: function(){
-            
-//         }
-//     });  
-});
-
-for(var i=0,len=rangeValue.length; i<len; i++){
-    rangeValue[i].addEventListener('change', function(){
-        var v = [];
-        for(var i=0,len=rangeValue.length; i<len; i++){
-            v[i] = rangeValue[i].value;
-        }
-        slider.noUiSlider.set(v);
-        // AJAX HERE
-        console.log(v);
-    });
-}
-
-var noUihandle = elm('.noUi-handle');
-if(noUihandle != undefined){
-    for(var i=0,len=noUihandle.length; i<len; i++){
-        noUihandle[i].addEventListener('click',function(){
-            var v = slider.noUiSlider.get();
-            // AJAX HERE
-            console.log(v);
-        });
-    }   
 }
 
 //FIND PARENT

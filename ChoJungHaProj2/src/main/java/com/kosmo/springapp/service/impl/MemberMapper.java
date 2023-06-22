@@ -24,4 +24,6 @@ public interface MemberMapper {
 		int updateByNo(MemberDTO record);
 		//전체 레코드 수 조회
 		int count(Map map);
+		//이미 있는 아이디인지 확인
+		int findId(Map map);
 }
