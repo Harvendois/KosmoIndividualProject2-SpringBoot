@@ -26,4 +26,7 @@ public interface MemberMapper {
 		int count(Map map);
 		//이미 있는 아이디인지 확인
 		int findId(Map map);
+		//아이디로 조회해서 레코드 하나 수정
+		int updateById(Map map);
+		
 }

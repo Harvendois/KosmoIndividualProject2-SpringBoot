@@ -26,8 +26,6 @@ public class MainController {
 	}
 	@GetMapping("/approach/BetaFn.do")
 	public String beta(@RequestParam Map map, Model model) {
-		
-		
 		return "/view/BetaFn";
 	}
 }

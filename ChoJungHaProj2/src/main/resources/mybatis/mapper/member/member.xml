@@ -92,8 +92,9 @@
 	<delete id="deleteByNo" parameterType="oneMemoDto">
 		DELETE onememo WHERE no=#{no}
 	</delete>
-	<update id="updateByNo" parameterType="oneMemoDto">
-		UPDATE onememo SET title=#{title},content=#{content} WHERE no=#{no}
+	 -->
+	<update id="updateById" parameterType="Map">
+		UPDATE member SET pwd=#{pwd}, registrynum=#{registrynum}, address=#{address}, name=#{name} WHERE id=#{id}
 	</update>
- -->
+
 </mapper>

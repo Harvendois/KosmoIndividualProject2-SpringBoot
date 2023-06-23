@@ -17,7 +17,9 @@ public class MvcConfig implements WebMvcConfigurer {
 		.addPathPatterns("/attempt/**")
 		.excludePathPatterns("/auth/**")
 		.excludePathPatterns("/approach/Registration.do")
+		.excludePathPatterns("/attempt/Register.do")
 		.excludePathPatterns("/approach/About.do")
+		.excludePathPatterns("/attempt/CheckId.do");
 		;
 	}
 }

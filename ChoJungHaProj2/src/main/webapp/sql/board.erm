@@ -89,7 +89,7 @@
 				<is_open_after_saved>true</is_open_after_saved>
 			</export_html_setting>
 			<export_image_setting>
-				<output_file_path></output_file_path>
+				<output_file_path>C:\Users\kosmo\Downloads\board.png</output_file_path>
 				<category_dir_path></category_dir_path>
 				<with_category_image>true</with_category_image>
 				<is_open_after_saved>true</is_open_after_saved>
@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2023-06-18 18:30:54</creation_date>
-			<updated_date>2023-06-18 18:54:08</updated_date>
+			<updated_date>2023-06-23 19:21:35</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>

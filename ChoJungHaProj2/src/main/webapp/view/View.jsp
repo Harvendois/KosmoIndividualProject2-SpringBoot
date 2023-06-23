@@ -44,7 +44,7 @@
 		</tbody>
 	</table>
 	<!-- 수정/삭제/목록 컨트롤 버튼 -->
-	<div class="text-center">
+	<div class="text-center" style="margin-bottom:50px">
 
 		<c:if test="${sessionScope.id ==record.id }" var="isWriter">
 			<a href="<c:url value="/approach/Edit.do?no=${record.no}"/>"	class="btn btn-success">수정</a> 
@@ -54,21 +54,6 @@
 
 		<a href="<c:url value="/approach/List.do"/>"
 			class="btn btn-success">목록</a>
-	</div>
-	<div class="row d-flex justify-content-center mt-3">
-		<div class="col-sm-8">
-			<table class="table table-hover text-center">
-				<thead>
-					<tr>
-						<th class="col-2">작성자</th>
-						<th>코멘트</th>
-						<th class="col-2">작성일</th>
-						<th class="col-2">삭제</th>
-					</tr>
-				</thead>
-				
-			</table>
-		</div>
 	</div>
 
 </div>

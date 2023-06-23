@@ -28,7 +28,7 @@
 	<nav class="navbar navbar-expand-md" style="position: fixed;">
         
         <!-- Toggler/collapsibe Button -->
-        <a class="navbar-brand" id="navbar_brand" href="#"> <i class="fa-solid fa-gear"></i> Jungha's Website <i class="fa-solid fa-code"></i></a>
+        <a class="navbar-brand" id="navbar_brand" href="<c:url value="/approach/About.do"/>"> <i class="fa-solid fa-gear"></i> Jungha's Website <i class="fa-solid fa-code"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>

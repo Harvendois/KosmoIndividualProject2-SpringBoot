@@ -32,7 +32,7 @@
 		            </li>
 		            <li><a href="#"><span class="fa fa-sitemap"></span>My Interests</a></li>
 		            <li><a href="invoice_list.php"><span class="fa fa-money"></span>My Purchase</a></li>
-		            <li id="edit"><a href="<c:url value="/attempt/MemberEdit.do?id=${record.id }"/>" ><span class="fa fa-user-o"></span>My Info</a></li>
+		            <li id="edit"><a href="<c:url value="/approach/MemberEdit.do?id=${record.id }"/>" ><span class="fa fa-user-o"></span>My Info</a></li>
 		            <li><a href="contact_list.php"><span class="fa fa-envelope-o"></span>Settings</a></li>
 		        </ul>
 		    </div>

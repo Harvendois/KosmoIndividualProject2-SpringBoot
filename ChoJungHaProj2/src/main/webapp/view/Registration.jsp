@@ -6,45 +6,98 @@
 <%@ include file="/template/Top.jsp" %>
 
     <div class="container" style="margin-top:50px; margin-bottom:50px">
+   <c:if test="${mode eq 'edit' }" var="isEdit">
     <div class="jumbotron" style="background-color:black; color:white;">
-		    <h1>회원가입</h1>            
+		    <h1>회원정보 수정</h1>            
 		</div><!--jumbotron-->
+	</c:if>
+	<c:if test="${not isEdit }">
+	 <div class="jumbotron" style="background-color:black; color:white;">
+	    <h1>회원가입</h1>            
+	</div><!--jumbotron-->
+	</c:if>
     <c:if test="${not empty param.register }">
     	<script>
     		alert('${param.register}');
     	</script>
     </c:if>
     <fieldset>
+    	
+		<c:if test="${mode eq 'edit' }" var="isEdit">
+		
+		<form action="<c:url value="/attempt/MemberEdit.do"/>"
+			method="post">
+			<div class="form-group">
+				<label><kbd class="lead">아이디</kbd></label> <input type="text"
+					value="${ empty param.id ?"": param.id}" class="form-control" name="id" id="edit-id"
+					placeholder="아이디를 입력하세요">
+			</div>
+			<span id="idcheck"></span>
+			<div class="form-group">
+				<label><kbd class="lead">비밀번호</kbd></label> <input type="password"
+					value="${ empty param.pwd ?"": param.pwd}${record.pwd }" class="form-control" name="pwd"
+					placeholder="비밀번호를 입력하세요">
+			</div>
+      		<div class="form-group">
+				<label><kbd class="lead">비밀번호 재입력</kbd></label> <input type="password"
+					value="${ empty param.pwd ?"": param.pwd}${record.pwd }" class="form-control" name="pwd2"
+					placeholder="비밀번호를 확인하세요">
+			</div>
+			<div class="form-group">
+				<label><kbd class="lead">이름</kbd></label> <input type="text"
+					value="${ empty param.name ?"": param.name}${record.name }" class="form-control" name="name"
+					placeholder="이름를 입력하세요">
+			</div>
+			<div class="form-group">
+				<label><kbd class="lead">주민등록번호</kbd></label> <input type="text"
+					value="${ empty param.registrynum ?"": param.registrynum}${record.registrynum }" class="form-control" name="registrynum"
+					placeholder="주민등록번호 7자리를 입력하세요">
+			</div>
+			<div class="form-group">
+				<label><kbd class="lead">주소</kbd></label> <input type="text"
+					value="${ empty param.address ?"": param.address}${record.address }" class="form-control" name="address"
+					placeholder="주소를 구까지 입력하세요">
+			</div>
+			<div class="form-group">
+				 <input type="hidden"
+					value="ANY" class="form-control" name="inter"
+					placeholder="">
+			</div>
+			<button type="submit" class="btn btn-primary" style="background-color:black;">확인</button>
+		</form> 
+		</c:if>
+		
+		<c:if test="${not isEdit }">
         <form action="<c:url value="/attempt/Register.do"/>"
 			method="post">
-			<div class="form-group">
-				<label><kbd class="lead">아이디</kbd></label> <input type="text"
-					value="${ empty param.id ?"": param.id}" class="form-control" name="id"
+			<div class="form-group" >
+				<label><kbd class="lead">아이디</kbd></label> <input type="text" id="register-id"
+					value="${ empty param.id ?"": param.id}" class="form-control id" name="id"
 					placeholder="아이디를 입력하세요">
 			</div>
 			<span id="idcheck"></span>
-			<div class="form-group">
-				<label><kbd class="lead">비밀번호</kbd></label> <input type="password"
+			<div class="form-group" style="display:none">
+				<label><kbd class="lead">비밀번호</kbd></label> <input type="password" id="register-pwd"
 					value="${ empty param.pwd ?"": param.pwd}" class="form-control" name="pwd"
 					placeholder="비밀번호를 입력하세요">
 			</div>
-      		<div class="form-group">
-				<label><kbd class="lead">비밀번호 재입력</kbd></label> <input type="password"
+      		<div class="form-group" style="display:none">
+				<label><kbd class="lead">비밀번호 재입력</kbd></label> <input type="password" id="register-pwd2"
 					value="${ empty param.pwd ?"": param.pwd}" class="form-control" name="pwd2"
 					placeholder="비밀번호를 확인하세요">
 			</div>
-			<div class="form-group">
-				<label><kbd class="lead">이름</kbd></label> <input type="text"
+			<div class="form-group" style="display:none">
+				<label><kbd class="lead">이름</kbd></label> <input type="text" id="register-name"
 					value="${ empty param.name ?"": param.name}" class="form-control" name="name"
 					placeholder="이름를 입력하세요">
 			</div>
-			<div class="form-group">
-				<label><kbd class="lead">주민등록번호</kbd></label> <input type="text"
+			<div class="form-group" style="display:none">
+				<label><kbd class="lead">주민등록번호</kbd></label> <input type="text" id="register-registrynum"
 					value="${ empty param.registrynum ?"": param.registrynum}" class="form-control" name="registrynum"
 					placeholder="주민등록번호 7자리를 입력하세요">
 			</div>
-			<div class="form-group">
-				<label><kbd class="lead">주소</kbd></label> <input type="text"
+			<div class="form-group" style="display:none">
+				<label><kbd class="lead">주소</kbd></label> <input type="text" id="register-address"
 					value="${ empty param.address ?"": param.address}" class="form-control" name="address"
 					placeholder="주소를 구까지 입력하세요">
 			</div>
@@ -53,49 +106,9 @@
 					value="ANY" class="form-control" name="inter"
 					placeholder="">
 			</div>
-			<button type="submit" class="btn btn-primary" style="background-color:black;">확인</button>
+			<button type="submit" class="btn btn-primary" style="background-color:black; display:none">확인</button>
 		</form> 
-		
-		<form action="<c:url value="/attempt/Register.do"/>"
-			method="post">
-			<div class="form-group">
-				<label><kbd class="lead">아이디</kbd></label> <input type="text"
-					value="${ empty param.id ?"": param.id}" class="form-control" name="id"
-					placeholder="아이디를 입력하세요">
-			</div>
-			<span id="idcheck"></span>
-			<div class="form-group">
-				<label><kbd class="lead">비밀번호</kbd></label> <input type="password"
-					value="${ empty param.pwd ?"": param.pwd}" class="form-control" name="pwd"
-					placeholder="비밀번호를 입력하세요">
-			</div>
-      		<div class="form-group">
-				<label><kbd class="lead">비밀번호 재입력</kbd></label> <input type="password"
-					value="${ empty param.pwd ?"": param.pwd}" class="form-control" name="pwd2"
-					placeholder="비밀번호를 확인하세요">
-			</div>
-			<div class="form-group">
-				<label><kbd class="lead">이름</kbd></label> <input type="text"
-					value="${ empty param.name ?"": param.name}" class="form-control" name="name"
-					placeholder="이름를 입력하세요">
-			</div>
-			<div class="form-group">
-				<label><kbd class="lead">주민등록번호</kbd></label> <input type="text"
-					value="${ empty param.registrynum ?"": param.registrynum}" class="form-control" name="registrynum"
-					placeholder="주민등록번호 7자리를 입력하세요">
-			</div>
-			<div class="form-group">
-				<label><kbd class="lead">주소</kbd></label> <input type="text"
-					value="${ empty param.address ?"": param.address}" class="form-control" name="address"
-					placeholder="주소를 구까지 입력하세요">
-			</div>
-			<div class="form-group">
-				 <input type="hidden"
-					value="ANY" class="form-control" name="inter"
-					placeholder="">
-			</div>
-			<button type="submit" class="btn btn-primary" style="background-color:black;">확인</button>
-		</form> 
+		</c:if>
 		</fieldset>
     </div><!--container-->
     <script> 
@@ -108,12 +121,15 @@
       var address = document.querySelector('input[name=address]');
       
       $(function(){
-        $('input[name=id]').keyup(function(){
+        //아이디 중복체크 회원정보 수정
+        $('#edit-id').keyup(function(){
           var id = $(this).val();
+          console.log(id);
           $.ajax({
             url: '<c:url value="/attempt/CheckId.do"/>',
             type: 'post',
             data: {'id': id}
+            
           }).done(function(data){
         	  console.log(data);
         	  if(data === '1'){
@@ -124,8 +140,80 @@
                   $('#idcheck').css('color', 'blue');
                 }
           });                 
-        })
+        });
+        //아이디 중복체크 회원가입
+        $('#register-id').keyup(function(){
+            var id = $(this).val();
+            console.log(id);
+            $.ajax({
+              url: '<c:url value="/attempt/CheckId.do"/>',
+              type: 'post',
+              data: {'id': id}
+            }).done(function(data){
+          	  console.log(data);
+          	  if(data === '1'){
+                    $('#idcheck').text('이미 사용중인 아이디입니다');
+                    $('#idcheck').css('color', 'red');
+                  }else{
+                    $('#idcheck').text('사용 가능한 아이디입니다');
+                    $('#idcheck').css('color', 'blue');
+                  }
+            });                 
+          });
+
+          //input div 토글 순차적으로 띄우기
+          $('#register-id').keyup(function(){
+            var id = $(this).val();
+            if(id.length >= 3){
+              $('#register-pwd').parent().show();
+            }else{
+              $('#register-pwd').parent().hide();
+            }
+          });
+          $('#register-pwd').keyup(function(){
+            console.log('pwd');
+            var pwd = $(this).val();
+            if(pwd.length >= 4){
+              $('#register-pwd2').parent().show();
+            }else{
+              $('#register-pwd2').parent().hide();
+            }
+          });
+          $('#register-pwd2').keyup(function(){
+            var pwd2 = $(this).val();
+            if(pwd2.length >= 4){
+              $('#register-name').parent().show();
+            }else{
+              $('#register-name').parent().hide();
+            }
+          });
+          $('#register-name').keyup(function(){
+            var name = $(this).val();
+            if(name.length >= 2){
+              $('#register-registrynum').parent().show();
+            }else{
+              $('#register-registrynum').parent().hide();
+            }
+          });
+          $('#register-registrynum').keyup(function(){
+            var registrynum = $(this).val();
+            if(registrynum.length >= 7){
+              $('#register-address').parent().show();
+            }else{
+              $('#register-address').parent().hide();
+            }
+          });
+          $('#register-address').keyup(function(){
+            var address = $(this).val();
+            if(address.length >= 10){
+              $('button[type=submit]').show();
+            }else{
+              $('button[type=submit]').hide();
+            }
+          });
   });
+
+
  
       
       btn.onclick = () => {

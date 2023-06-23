@@ -30,15 +30,13 @@ public class MemberServiceImpl implements AllService<MemberDTO>{
 		return mapper.save(map);
 	}
 
-	@Override
-	public int update(MemberDTO record) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateMember(Map map) {
+		
+		return mapper.updateById(map);
 	}
 
 	@Override
 	public int delete(MemberDTO record) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -67,8 +65,14 @@ public class MemberServiceImpl implements AllService<MemberDTO>{
 	}
 
 	public int isDuplicate(Map map) {
-		
+		System.out.println(map.get("id"));
 		return mapper.findId(map);
+	}
+
+	@Override
+	public int update(MemberDTO record) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

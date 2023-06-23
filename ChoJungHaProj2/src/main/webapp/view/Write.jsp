@@ -5,7 +5,7 @@
 <div class="container" style="margin-top: 50px">
 	<div class="jumbotron bg-dark text-white">
 		<h1>
-			Spring Framework ${sessionScope.id} <small>한줄 댓글-등록 페이지</small>
+			MR/MRS. ${sessionScope.id} <small>is <c:if test="${mode eq 'edit' }" var="isEdit">editing</c:if> <c:if test="${not isEdit }"> writing </c:if> now..</small>
 		</h1>
 	</div>
 	<!--jumbotron-->
